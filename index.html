@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nishu</title>
+
+<style>
+/* ---------------- GLOBAL ---------------- */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg,#1e3cff,#1764ff,#248aff);
+    background-size:300%;
+    animation:gradient 12s infinite alternate;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
+}
+
+/* ---------------- HEADING ---------------- */
+h1{
+    font-size:32px;
+    font-weight:700;
+    text-shadow:0 0 18px rgba(255,255,255,.7);
+    animation:pop 1.5s ease;
+}
+@keyframes pop{
+    0%{transform:scale(0.8);}
+    100%{transform:scale(1);}
+}
+.subtitle{
+    font-size:16px;
+    opacity:.9;
+    margin-bottom:20px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+button{
+    background:rgba(255,255,255,.2);
+    color:white;
+    border:2px solid rgba(255,255,255,.4);
+    padding:12px 22px;
+    margin:8px;
+    font-size:17px;
+    font-weight:600;
+    border-radius:14px;
+    cursor:pointer;
+    backdrop-filter:blur(4px);
+    transition:.25s;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+button:hover{
+    transform:translateY(-4px) scale(1.08);
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+
+/* ---------------- SECTIONS ---------------- */
+.section{
+    display:none;
+    background:rgba(255,255,255,.18);
+    border:2px solid rgba(255,255,255,.28);
+    padding:20px;
+    border-radius:18px;
+    margin-top:25px;
+    backdrop-filter:blur(8px);
+    animation:fade .6s ease;
+}
+@keyframes fade{
+    0%{opacity:0;transform:translateY(20px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+.arrow{
+    font-size:40px;
+    margin-top:14px;
+    animation:down 1.6s infinite;
+}
+@keyframes down{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(12px);}
+    100%{transform:translateY(0);}
+}
+
+/* ---------------- GIFT BOX ---------------- */
+.gift{
+    width:130px;
+    height:130px;
+    margin:20px auto;
+    background:linear-gradient(135deg,#ff2d2d,#b80000);
+    border-radius:14px;
+    animation:shake 1.5s infinite;
+    position:relative;
+    box-shadow:0 0 20px rgba(255,0,0,.4);
+    cursor:pointer;
+}
+.gift:before{
+    content:"";
+    position:absolute;
+    width:16px;
+    height:100%;
+    background:rgba(255,255,255,.6);
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:8px;
+}
+@keyframes shake{
+    0%{transform:rotate(0);}
+    25%{transform:rotate(2deg);}
+    50%{transform:rotate(0);}
+    75%{transform:rotate(-2deg);}
+    100%{transform:rotate(0);}
+}
+
+/* ---------------- KISS EMOJI ---------------- */
+.kiss-emoji {
+    font-size: 45px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    animation: kissPop 1.3s ease-out forwards;
+}
+
+@keyframes kissPop {
+    0% {
+        transform: translate(-50%, -20%) scale(0);
+        opacity: 0;
+    }
+    40% {
+        transform: translate(-50%, -80%) scale(1.4);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -140%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ---------------- CAKE ---------------- */
+.cake{
+    font-size:90px;
+    animation:pulse 1.5s infinite;
+    margin-bottom:25px;
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+/* ---------------- POPUP ---------------- */
+.popup{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+.popup-box{
+    background:white;
+    color:black;
+    padding:26px;
+    border-radius:16px;
+    width:85%;
+    max-width:320px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+    animation:popbox .5s ease;
+}
+@keyframes popbox{
+    0%{transform:scale(.7);opacity:0;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+/* ---------------- FLOATING HEARTS ---------------- */
+.heart{
+    position:fixed;
+    color:#ff99d9;
+    font-size:26px;
+    animation:float 4s linear infinite;
+    opacity:.8;
+}
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-800px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" src="music.mp3" autoplay loop></audio>
+
+<script>
+document.addEventListener("click", () => {
+    let music = document.getElementById("bgMusic");
+    music.volume = 0.4;
+    music.play();
+}, { once: true });
+</script>
+
+<h1>Happy Birthday My Dear Wife Nishu 🎉</h1>
+<p class="subtitle">Love you forever meri jaan 💖</p>
+
+<!-- MAIN BUTTONS -->
+<button onclick="openSection('s1')">1. संदेश (From Rohit)</button>
+<button onclick="openSection('s2')">2. प्यारे नाम</button>
+<button onclick="openSection('s3')">3. Surprise Gift</button>
+<button onclick="openSection('s4')">4. Cake Cutting</button>
+
+<!-- SECTION 1 -->
+<div id="s1" class="section">
+    <h3>मेरी प्यारी Nishu ❤️</h3>
+    <p>मैं, आपका पति <b>Rohit</b>,  
+    आपको आपके जन्मदिन पर दिल से बहुत-बहुत शुभकामनाएँ देता हूँ।  
+    आप मेरी जिंदगी का सबसे खूबसूरत हिस्सा हो।</p>
+    <div class="arrow">↓</div>
+    <p>Press 2 Button</p>
+</div>
+
+<!-- SECTION 2 -->
+<div id="s2" class="section">
+    <h3>मेरे सबसे प्यारे नाम 💖</h3>
+    <p>I Love You</p>
+    <p>Kareja</p>
+    <p>Bhutki</p>
+    <p>Chhota Don</p>
+    <p>My Wife</p>
+    <p>Mera Bcha</p>
+    <p>Sweet Heart</p>
+    <p>Meri Rasmalai</p>
+    <p>Hamar Chapakal</p>
+    <div class="arrow">↓</div>
+    <p>Press 3 Button</p>
+</div>
+
+<!-- SECTION 3 -->
+<div id="s3" class="section">
+    <div class="gift" onclick="kissAnimation()"></div>
+    <div id="kissContainer"></div>
+    <h3>Sona… Aapka surprise gift jldi hi milega 🎁✨</h3>
+    <p style="font-size:14px;opacity:.8;">(Gift box ko tap karo 😘)</p>
+</div>
+
+<!-- SECTION 4 -->
+<div id="s4" class="section">
+    <div class="cake">🎂</div>
+    <button onclick="openPopup()">Cut Cake 🎉</button>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h2>Happy Birthday My Life Line ❤️</h2>
+        <p>Jaan, tum meri duniya ho.  
+        Always stay happy. I love you so much 💖</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+/* ---------------- HEART ANIMATION ---------------- */
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"%";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+},600);
+
+/* ---------------- SECTION CONTROL ---------------- */
+function openSection(id){
+    document.querySelectorAll(".section").forEach(sec=>sec.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+
+/* ---------------- POPUP ---------------- */
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+}
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+/* ---------------- KISS EMOJI FROM GIFT ---------------- */
+function kissAnimation() {
+    let kiss = document.createElement("div");
+    kiss.classList.add("kiss-emoji");
+    kiss.innerHTML = "😘💋";
+
+    document.getElementById("kissContainer").appendChild(kiss);
+
+    setTimeout(() => { kiss.remove(); }, 1500);
+}
+</script>
+
+</body>
+</html>
